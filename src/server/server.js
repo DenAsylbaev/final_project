@@ -34,5 +34,12 @@ app.get('/apis/products', (req, res) => {
     })
 });
 
+const history = require('connect-history-api-fallback');
+app.use(history({
+  disableDotRule: true,
+  verbose: true
+}));
+app.use(express.static(path.join(__dirname, '../../dist')));
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listen on port ${port}...`));
