@@ -14,8 +14,4 @@ module.exports = defineConfig({
     }
   }
 }
-
-  // css: {
-  //   requireModuleExtension: false
-  // }
 });

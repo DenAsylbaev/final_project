@@ -28,8 +28,17 @@ export default {
                     console.log(error)
                 })
         },
+
+        filter({commit, state}, userSearch){
+            let regexp = new RegExp(userSearch, 'i');
+            let filteredProductList = state.productsList.filter(el => regexp.test(el.product_name));
+            commit('setFilteredProductsToState', filteredProductList);
+        },
         
     },
     getters: {
+        filteredProducts(state) {
+            return state.filteredProductList
+        }
     }
 }
